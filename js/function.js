@@ -334,9 +334,9 @@ $(document).ready(function() {
             //     }
             // } );
         }
-    stikyMenu();
-
+        
     }
+    stikyMenu();
 
     // Видео youtube для страницы
     function uploadYoutubeVideo() {
@@ -526,6 +526,42 @@ $(document).ready(function() {
     // }
     // addNameFile();
     // --------------------------------------------------------------------
+
+
+    // function reloadPage () {
+    //     if (!localStorage.getItem("reload")) {
+    //         localStorage.setItem("reload", "true");
+    //         location.reload();
+    //     }
+    //     else {
+    //         localStorage.removeItem("reload");
+    //     }
+    // }
+
+
+    // Склонение существительных после числительных. https://snipp.ru/php/word-declination
+    // ['час', 'часа', 'часов']
+    // ['минута', 'минуты', 'минут']
+    // function numWord (value, words, show = true) {
+    //     let num = value % 100;
+    //     if (num > 19) {
+    //         num = value % 10;
+    //     }
+
+    //     let out = (show) ?  value + ' ' : '';
+
+    //     switch (num) {
+    //         case 1:  out += words[0]; break;
+    //         case 2: 
+    //         case 3: 
+    //         case 4:  out += words[1]; break;
+    //         default: out += words[2]; break;
+        
+    //     }
+    //     // console.log(out);
+    //     return out;
+    // }
+
 
 
 })

@@ -152,6 +152,14 @@ body {
 	}
 }
 
+// По счетчикам элементов с нулям впереди на будущее 
+// li:before {
+//   counter-increment: li;
+//   content: counter(item, decimal-leading-zero);
+// }
+
+// При чем есть варинаты через :nth-child(-n+9) сделать
+
 // * {
 // 	border: 1px solid #000;
 // }
