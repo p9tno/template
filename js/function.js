@@ -446,6 +446,7 @@ $(document).ready(function() {
             }
         }, duration / final );
     }
+    // end animate numbers
 
     function initAOS () {
         // https://github.com/michalsnik/aos
@@ -466,6 +467,36 @@ $(document).ready(function() {
 
     }
     initAOS ();
+
+
+    // <a class="scroll_js" href="#id"></a>
+    function scroolTo() {
+        $(".scroll_js").on("click", function (event) {
+            event.preventDefault();
+            let id  = $(this).attr('href');
+            // console.log(id);
+
+            let top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
+            // $('.hamburger').removeClass('hamburger_open');
+            // $('.header__nav').removeClass('header__nav_open');
+            // $( 'body' ).removeClass( 'nav-open' );
+        });
+    };
+    scroolTo();
+
+    function hideNav() {
+        $(".header__nav").on('mouseenter', function() {
+            // console.log('mouse on');
+        });
+
+        $(".header__nav").on('mouseleave', function() {
+            // $('.hamburger').removeClass('hamburger_open');
+            // $('.header__nav').removeClass('header__nav_open');
+            // $( 'body' ).removeClass( 'nav-open' );
+        });
+    }
+    hideNav();
 
 
     // --------------------------------------------------------------------
@@ -565,4 +596,4 @@ $(document).ready(function() {
 
 
 })
-// end animate numbers
+
