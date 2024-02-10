@@ -139,16 +139,16 @@ $(document).ready(function() {
     };
     activeNav();
 
-    function showMore(classItem, btn) {
-        // let classItem = '.vacancies__item';
-        // let classItem = class;
+    function showMore(classItem, btn, start = 1, show = 1) {
         let item = $(''+ classItem +'');
         let count = item.length;
-        let start = 1;
-        let show = 1;
 
         item.addClass('d-none');
         $('' + classItem + ':lt(' + start + ')').removeClass('d-none');
+
+        if (start >= count) {
+            $(`${btn}`).parent().remove();
+        }
 
         $(btn).click(function(e) {
             e.preventDefault();
@@ -170,7 +170,6 @@ $(document).ready(function() {
                 $(this).text(more);
             }, 500);
         });
-
     }
     // showMore('.vacancies__item', '.show_more_v_js');
 
