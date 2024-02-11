@@ -201,6 +201,23 @@ $(document).ready(function() {
     }
     collapsed();
 
+    // https://www.demo2s.com/javascript/jquery-not-this.html
+    // .collapse
+    //     .collapse__title
+    //     .collapse__body
+    function collapsedActiveOne() {
+        $('.collapse__title').on('click', function() {
+            let body = $(this).parent().find('.collapse__body');
+            $('.collapse__body').not(body).slideUp();
+            $(body).slideToggle();
+
+            let toggle = $(this).parent().find('.collapse__title');
+            $('.collapse__title').not(toggle).removeClass('open');
+            $(toggle).toggleClass('open');
+        })
+    }
+    // collapsedActiveOne();
+
     function doTabs () {
         $('.tabs__wrapper').each(function() {
             let ths = $(this);
