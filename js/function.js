@@ -514,6 +514,53 @@ $(document).ready(function() {
     }
     hideNav();
 
+    function getLetterInWrapp(title) {
+        let html = '';
+        let isTag = false;
+        const text = title.innerHTML;
+        const clean = text
+            .replace(/^\s\s*/, '')
+            .replace(/\s\s*$/, '')
+            .replace(/(\r\n|\n|\r)/gm, '')
+            .replace('&nbsp;', '');
+    
+        const symbols = clean.split('');
+        // console.log(text);
+        // console.log('clean', clean);
+    
+        symbols.forEach((char) => {
+            if (char === '<') {
+                isTag = true;
+            }
+            if (isTag || char === ' ') {
+                html += char;
+            } else {
+                html += '<span class="letter">' + char + '</span>';
+            }
+            if (char === '>') {
+                isTag = false;
+            }
+        });
+    
+        title.innerHTML = html;
+        return title.querySelectorAll('.letter');
+    }
+
+
+    // Scroll to ID
+    function menuScroll(menuItem) {
+        menuItem.find('a[href^="#"]').click(function () {
+            var scroll_el = $(this).attr('href'),
+                time = 500;
+            if ($(scroll_el).length != 0) {
+                $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, time);
+                $(this).addClass('active');
+            }
+            return false;
+        });
+    }
+    // menuScroll($('.js-scroll-to'));
+
 
     // --------------------------------------------------------------------
     // Деление чисел на разряды Например из строки 10000 получаем 10 000
